@@ -1,16 +1,27 @@
-//import react into the bundle
-import React from 'react'
-import {createRoot} from 'react-dom/client'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Layout from './layout'; // Ensure this path is correct
+import { Context } from './store/appContext';
+import injectContext from './store/appContext';
+import '../styles/index.css'; // Ensure this path is correct
 
-//include your index.scss file into the bundle
-import "../styles/index.css";
+const root = createRoot(document.querySelector('#app'));
 
-//import your own components
-import Layout from './layout.js'
+const Main = () => {
+    return (
+            <Layout />
+    );
+};
 
-//
-const root = createRoot(document.querySelector("#app"))
+const Injected = injectContext(Main);
 
-//render your react application
-root.render(<Layout/>)
+// Define the initial state
+const initialState = {
+    favorites: [] // Initial empty array for managing favorite items
+};
 
+root.render(
+    <Context.Provider value={initialState}>
+        <Injected />
+    </Context.Provider>
+);

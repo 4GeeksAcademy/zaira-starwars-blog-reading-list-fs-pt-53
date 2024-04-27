@@ -1,0 +1,11 @@
+.scrollable-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollable-row::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
