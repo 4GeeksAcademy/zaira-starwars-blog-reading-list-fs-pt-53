@@ -15,9 +15,16 @@ const Single = () => {
 
     useEffect(() => {
         const fetchEntity = async () => {
-            const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
-            const data = await response.json();
-            setEntity(data.result);
+            try {
+                const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch entity details");
+                }
+                const data = await response.json();
+                setEntity(data.result);
+            } catch (error) {
+                console.error("Error fetching entity details:", error);
+            }
         };
 
         fetchEntity();

@@ -1,11 +1,18 @@
-.scrollable-row {
+.scrollflow{
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    overflow-x: scroll;
+
 }
 
-.scrollable-row::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+:root {
+    --red: #f5bc1ef6;
+    --darkred: #1e2027;
+    --platinum: #e5e5e5;
+    --black: #2b2d42;
+    --white: #fff;
+    --thumb: #edf2f4;
+}
+
+.card:hover {
+    background-color: #80c2d6;
 }
